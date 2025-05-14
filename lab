@@ -1,0 +1,66 @@
+WIFI
+1st step- Cracking WEP Encryption Using Pre-Captured Files
+https://www.aircrack-ng.org/downloads.html?utm_source=chatgpt.com
+
+wlan.fc.protected ==1
+aircrack-ng ptw.cap
+
+2nd step – Cracking WPA/WPA2 Encryption Using a Pre-Captured Handshake
+aircrack-ng NinjaJc01-01.cap   
+ aircrack-ng -w /usr/share/wordlists/rockyou.txt -b 02:1A:11:FF:D9:BD NinjaJc01-01.cap
+
+Wifi: 
+└─$ ls
+NinjaJc01-01.cap                                                                                             
+┌──(kali㉿Kali)-[~/Desktop]
+└─$ cd ..                                                                                           
+┌──(kali㉿Kali)-[~]
+└─$ ls                                                                                                
+┌──(kali㉿Kali)-[~]
+└─$ cd ..                                                                                          
+┌──(kali㉿Kali)-[/home]
+└─$ ls                                                                                                
+┌──(kali㉿Kali)-[/home]
+└─$ cd ..
+                                                                                                
+┌──(kali㉿Kali)-[/]
+└─$ ls                                                                                        
+┌──(kali㉿Kali)-[/]
+└─$ cd usr                                                                                         
+┌──(kali㉿Kali)-[/usr]
+└─$ ls                                                                                                
+┌──(kali㉿Kali)-[/usr]
+└─$ cd share                                                                                           
+┌──(kali㉿Kali)-[/usr/share]
+└─$ ls                                                                                                
+┌──(kali㉿Kali)-[/usr/share]
+└─$ cd wordlists                                                                             
+┌──(kali㉿Kali)-[/usr/share/wordlists]
+└─$ ls                                                                                                                                                                                                
+┌──(kali㉿Kali)-[/usr/share/wordlists]
+└─$ sudo gunzip rockyou.txt.gz
+[sudo] password for kali:                                                                                             
+┌──(kali㉿Kali)-[/usr/share/wordlists]
+└─$ ls
+
+
+aircrack-ng NinjaJc01-01.cap
+aircrack-ng -w /usr/share/wordlists/rockyou.txt -b 02:1A:11:FF:D9:BD NinjaJc01-01.cap
+
+Bluetooth
+Bluetooth Pcap
+https://github.com/mikeryan/crackle/blob/master/tests/01_crack/pairing_and_ltk_exchange.pcap  
+
+crackle -i pairing_and_ltk_exchange.pcap -o decrypt.pcap
+
+IOT
+Step 1: download file from link
+https://github.com/pradeesi/MQTT-Wireshark-Capture/blob/master/mqtt_packets.pcapng
+
+2. save in kali desktop
+3. cd Desktop
+4. tshark -r IoT.pcapng -Y "mqtt" -T fields -e mqtt.topic
+5. tshark -r IoT.pcapng -Y "mqtt" -T fields -e mqtt.msg
+6. echo 48656c6c6f2066726f6d20746865205061686f20626c6f636b696e6720636c69656e74 | xxd -r -p
+7. echo 48656c6c6f204d515454 | xxd -r -p
+
